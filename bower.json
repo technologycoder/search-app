@@ -1,0 +1,13 @@
+{
+  "name": "search-app",
+  "description": "Search App",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "angular-resource": "~1.4.8",
+    "elasticsearch": "~10.0.1",
+    "elastic.js": "~1.2.0"
+  }
+}
