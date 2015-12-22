@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Search APP</title>
+
+<!-- Bootstrap core CSS -->
+<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body ng-app="searchApp" ng-controller="searchController">
+
+	<div class="well container-fluid">
+		<div class="row">
+			<div class="h1 col-md-2 col-md-offset-1">
+				<p>Searchly</p>
+			</div>
+			<div class="col-md-6">
+				<form>
+					<div class="h1 input-group">
+						<input type="text" class="form-control" placeholder="Search for..." ng-model="search.query" ng-change="retrieveSuggestions()">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button" ng-click="performSearch()">Go!</button>
+						</span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-1">
+				<div class="sidebar-module">
+					<h4>Facets</h4>
+					<ol class="list-unstyled">
+						<li><a href="#">Link1</a>
+						<li><a href="#">Link2</a>
+						<li><a href="#">Link3</a>
+						<li><a href="#">Link4</a>
+					</ol>
+				</div>
+				<div class="sidebar-module">
+					<h4>choices</h4>
+					<ol class="list-unstyled">
+						<li><a href="#">Link1</a>
+						<li><a href="#">Link2</a>
+						<li><a href="#">Link3</a>
+						<li><a href="#">Link4</a>
+					</ol>
+				</div>
+			</div>
+			<div class="col-md-10">
+
+				<div class="media" ng-repeat="result in search.results">
+					<a class="pull-left" href="#"> <img class="media-object" src="{{result._source.image}}">
+					</a>
+					<div class="media-body">
+						<h4 class="media-heading">{{result._source.name}}</h4>
+						<p>{{result._soruce.plot}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+
+	<script src="bower_components/elasticsearch/elasticsearch.angular.min.js"></script>
+	<script src="bower_components/elastic.js/dist/elastic.min.js"></script>
+
+	<script src="app/services/services.js"></script>
+	<script src="app/components/controllers.js"></script>
+	<script src="app/app.js"></script>
+
+
+</body>
+</html>
